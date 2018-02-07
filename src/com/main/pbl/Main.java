@@ -5,7 +5,7 @@ import com.main.puzzle.SquareOne;
 public class Main {
 
     public static void main(String[] args) {
-        Finder finder = new Finder(Finder.allPbls()[50]);
+        Finder finder = new Finder(Finder.allPbls()[409]);
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -13,11 +13,7 @@ public class Main {
             }
         });
 
-        try {
-            t.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        try { t.join(); } catch (InterruptedException e) { e.printStackTrace(); }
 
         t.start();
     }

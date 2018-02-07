@@ -14,8 +14,8 @@ public class PLL {
 
     //TODO
     public String sequenceAtBottom(){
-        String prefix = "/6,6/-1,1";
-        String sufix = sequence.endsWith("/") ? "/6,6/-1,1" : "/6,6/-1,1";
+        String prefix = sequence.startsWith("/") ? "/6,6/-1,1" : "/6,6/-1,1/";
+        String sufix = !sequence.endsWith("/") ? "/6,6/-1,1" : "1,-1/6,6/";
         return prefix + sequence + sufix;
     }
 
