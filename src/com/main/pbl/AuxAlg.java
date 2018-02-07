@@ -28,6 +28,6 @@ public class AuxAlg {
 
     @Override
     public String toString() {
-        return "Aux " + this.name;
+        return this.name + ": [" + this.sequence + "]";
     }
 }

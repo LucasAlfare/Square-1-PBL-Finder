@@ -12,13 +12,15 @@ public class Finder {
     private PBL targetPbl;
     private ArrayList<SucessSearch> sucessSearches;
     private long elapsedTime;
+    private boolean searching;
 
     public Finder(PBL targetPbl) {
         this.targetPbl = targetPbl;
+
         sucessSearches = new ArrayList<>();
     }
 
-    public ArrayList<SucessSearch> getSucessSearches(){
+    public void search(){
         SquareOne squareOne = new SquareOne();
         squareOne.applyStringSequence(reversedSequence(targetPbl.getTopPLL().getSequence()));
         squareOne.applyStringSequence(reversedSequence(targetPbl.getBottomPLL().sequenceAtBottom()));
@@ -26,6 +28,7 @@ public class Finder {
         long i = System.currentTimeMillis();
         for (AuxAlg a : AlgTemplates.AUX_ALGS) {
             for (AuxAlg b : AlgTemplates.AUX_ALGS) {
+                searching = true;
 
                 String testSolveSeq = a.getSequence() + b.getSequence();
                 squareOne.applyStringSequence(testSolveSeq);
@@ -39,7 +42,7 @@ public class Finder {
             }
         }
 
-        return sucessSearches;
+        searching = false;
     }
 
     @Deprecated
@@ -152,7 +155,7 @@ public class Finder {
             }
         }
 
-        String r = hold.toString().replaceAll(", ", "/").replaceAll("\\[", "").replaceAll("]", "");
+        String r = hold.toString().replaceAll(", ", "/").replaceAll("\\[", "").replaceAll("]", "").replaceAll(" ", "");
 
         if (algorithm.startsWith("/")) r += "/";
         if (algorithm.endsWith("/")) r = "/" + r;
@@ -161,7 +164,7 @@ public class Finder {
     }
 
     @Deprecated
-    public static PBL[] allPbls() {
+    public PBL[] allPbls() {
         ArrayList<PBL> r = new ArrayList<>();
         int counter = 0;
 
@@ -197,5 +200,21 @@ public class Finder {
 
     public void setElapsedTime(long elapsedTime) {
         this.elapsedTime = elapsedTime;
+    }
+
+    public boolean isSearching() {
+        return searching;
+    }
+
+    public void setSearching(boolean searching) {
+        this.searching = searching;
+    }
+
+    public ArrayList<SucessSearch> getSucessSearches() {
+        return sucessSearches;
+    }
+
+    public void setSucessSearches(ArrayList<SucessSearch> sucessSearches) {
+        this.sucessSearches = sucessSearches;
     }
 }

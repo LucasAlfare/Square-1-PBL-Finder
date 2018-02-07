@@ -42,11 +42,11 @@ public class SucessSearch {
 
         r += "[";
         for (AuxAlg x : auxAlgs){
-            r += x.getName() + ",";
+            r += x.getName() + "|";
         }
 
         r += ";]";
 
-        return r.replaceAll(",]", "");
+        return r.replaceAll(",;", "");
     }
 }
