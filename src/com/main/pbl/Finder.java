@@ -304,8 +304,20 @@ public class Finder {
         System.out.println(squareOne);
 
         for (AuxAlg a : Finder.AUX_ALGS){
-
+            for (AuxAlg b : Finder.AUX_ALGS){
+                String testSolveSeq = a.getSequence() + b.getSequence();
+                squareOne.applyStringSequence(testSolveSeq);
+                if (isSolved(squareOne)){
+                    System.out.println("FOUND!!");
+                    System.out.println("The sequence " + testSolveSeq + " solves the passed PBL!!");
+                    return;
+                } else {
+                    squareOne.applyStringSequence(algorithmToSetupSequence(testSolveSeq));
+                }
+            }
         }
+
+        System.out.println("Couldn't find a sequence! :(");
     }
 
     private String algorithmToSetupSequence(String algorithm) {
