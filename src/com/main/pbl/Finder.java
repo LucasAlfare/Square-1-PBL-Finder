@@ -302,7 +302,6 @@ public class Finder {
 
                 if (isSolved(squareOne)){
                     long elapesedTime = System.currentTimeMillis() - i;
-
                     System.out.println("FOUND!!");
                     System.out.println("The sequence " + testSolveSeq + " solves the passed PBL!!");
                     System.out.println("Search time for single solution was " + elapesedTime + " miliseconds.");
@@ -314,6 +313,7 @@ public class Finder {
         }
 
         System.out.println("Couldn't find a sequence! :(");
+        System.out.println("Elapsed time: " + (System.currentTimeMillis() - i));
     }
 
     private String reversedSequence(String algorithm) {
