@@ -395,11 +395,11 @@ public class Finder {
         return currentEquals;
     }
 
-    public PBL getTargetPbl() {
-        return targetPbl;
-    }
-
-    public void setTargetPbl(PBL targetPbl) {
-        this.targetPbl = targetPbl;
-    }
+//    public PBL getTargetPbl() {
+//        return targetPbl;
+//    }
+//
+//    public void setTargetPbl(PBL targetPbl) {
+//        this.targetPbl = targetPbl;
+//    }
 }
