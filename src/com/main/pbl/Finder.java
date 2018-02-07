@@ -10,54 +10,54 @@ import java.util.Collections;
 public class Finder {
 
     private static final PLL[] STANDARD_PLLs = {
-                    //new PLL("Skip", "", false),
-                    new PLL("Ua", "/3,0/1,0/0,-3/-1,0/-3,0/1,0/0,3/-1,0", false),
-                    new PLL("Ub", "1,0/0,-3/-1,0/3,0/1,0/0,3/-1,0/-3,0/", false),
-                    new PLL("Z", "1,0/-1,-1/-2,1/-1,-1/4,1/-1,-1/0,1", false),
-                    new PLL("H", "1,0/-1,-1/-2,1/-1,-1/-5,1/-1,-1/-2,1/-1,-1/0,1", false),
-                    new PLL("Aa", "1,0/-3,0/3,3/0,-3/2,0/-3,0/3,3/0,-3/", false),
-                    new PLL("Ab", "/-3,0/3,3/0,-3/-2,0/-3,0/3,3/0,-3/-1,0", false),
-                    new PLL("E", "/3,3/1,-2/2,2/-3,0/-3,-3/", false),
-                    new PLL("F", "1,0/-1,-1/-3,0/3,0/1,4/-3,0/3,0/2,-4/-3,0/0,1", false),
-                    new PLL("Ja", "1,0/3,-3/3,0/-3,0/0,3/-3,0/-1,0", false),
-                    new PLL("Jb", "/3,-3/3,0/-3,0/0,3/-3,0/", false),
-                    new PLL("Ra", "/-3,0/3,0/-3,0/0,-3/4,1/-1,2/-3,-3/", false),
-                    new PLL("Rb", "1,0/3,0/-3,0/3,0/0,3/2,5/1,4/3,3/-1,0/", false),
-                    new PLL("T", "/3,0/-3,-3/0,3/4,0/3,0/-3,-3/0,3/-1,0", false),
-                    new PLL("Y", "1,0/3,0/3,3/3,0/5,0/0,3/3,3/0,3/", false),
-                    new PLL("Na", "/3,3/-3,0/3,3/-3,0/3,3/", false),
-                    new PLL("Nb", "1,0/3,3/-3,0/3,3/-3,0/3,3/-1,0", false),
-                    new PLL("Ga", "/-3,3/3,-3/-2,0/0,3/0,-3/0,3/0,-3/-1,0", false),
-                    new PLL("Gb", "1,0/0,3/0,-3/0,3/0,-3/-1,0/-3,3/3,-3/", false),
-                    new PLL("Gc", "1,0/-3,3/3,-3/-4,0/0,3/0,-3/0,3/0,-3/", false),
-                    new PLL("Gd", "/0,3/0,-3/0,3/0,-3/1,0/-3,3/3,-3/-1,0", false),
-                    new PLL("V", "1,0/3,0/-4,-1/0,-3/3,0/1,-2/0,3/0,3/-4,-1/0,1", false)
-            };
+            //new PLL("Skip", "", false),
+            new PLL("Ua", "/3,0/1,0/0,-3/-1,0/-3,0/1,0/0,3/-1,0", false),
+            new PLL("Ub", "1,0/0,-3/-1,0/3,0/1,0/0,3/-1,0/-3,0/", false),
+            new PLL("Z", "1,0/-1,-1/-2,1/-1,-1/4,1/-1,-1/0,1", false),
+            new PLL("H", "1,0/-1,-1/-2,1/-1,-1/-5,1/-1,-1/-2,1/-1,-1/0,1", false),
+            new PLL("Aa", "1,0/-3,0/3,3/0,-3/2,0/-3,0/3,3/0,-3/", false),
+            new PLL("Ab", "/-3,0/3,3/0,-3/-2,0/-3,0/3,3/0,-3/-1,0", false),
+            new PLL("E", "/3,3/1,-2/2,2/-3,0/-3,-3/", false),
+            new PLL("F", "1,0/-1,-1/-3,0/3,0/1,4/-3,0/3,0/2,-4/-3,0/0,1", false),
+            new PLL("Ja", "1,0/3,-3/3,0/-3,0/0,3/-3,0/-1,0", false),
+            new PLL("Jb", "/3,-3/3,0/-3,0/0,3/-3,0/", false),
+            new PLL("Ra", "/-3,0/3,0/-3,0/0,-3/4,1/-1,2/-3,-3/", false),
+            new PLL("Rb", "1,0/3,0/-3,0/3,0/0,3/2,5/1,4/3,3/-1,0/", false),
+            new PLL("T", "/3,0/-3,-3/0,3/4,0/3,0/-3,-3/0,3/-1,0", false),
+            new PLL("Y", "1,0/3,0/3,3/3,0/5,0/0,3/3,3/0,3/", false),
+            new PLL("Na", "/3,3/-3,0/3,3/-3,0/3,3/", false),
+            new PLL("Nb", "1,0/3,3/-3,0/3,3/-3,0/3,3/-1,0", false),
+            new PLL("Ga", "/-3,3/3,-3/-2,0/0,3/0,-3/0,3/0,-3/-1,0", false),
+            new PLL("Gb", "1,0/0,3/0,-3/0,3/0,-3/-1,0/-3,3/3,-3/", false),
+            new PLL("Gc", "1,0/-3,3/3,-3/-4,0/0,3/0,-3/0,3/0,-3/", false),
+            new PLL("Gd", "/0,3/0,-3/0,3/0,-3/1,0/-3,3/3,-3/-1,0", false),
+            new PLL("V", "1,0/3,0/-4,-1/0,-3/3,0/1,-2/0,3/0,3/-4,-1/0,1", false)
+    };
 
     private static final PLL[] PARITY_PLLs = {
-                    new PLL("Adj", "/-3,0/0,3/0,-3/0,3/2,0/0,2/-2,0/4,0/0,-2/0,2/-1,4/0,-3/", true),
-                    new PLL("Opp", "/3,3/1,0/-2,-2/2,0/2,2/0,-2/-1,-1/0,3/-3,-3/0,2/-2,-2/-1,0", true),
-                    new PLL("Oa", "/3,3/1,0/-2,-2/-2,0/2,2/-1,0/-3,-3/1,0/2,2/0,1", true),
-                    new PLL("Ob", "/3,3/1,0/-2,-2/2,0/2,2/-1,0/-3,-3/0,2/-2,-2/-1,0", true),
-                    new PLL("W", "0,-1/1,-2/-4,0/0,3/1,0/3,-2/-4,0/-4,0/-2,2/-1,0/0,-3/", true),
-                    new PLL("M", "/3,0/1,2/2,0/-4,0/4,0/2,0/-1,-2/-3,0/-2,0/-4,2/4,-2/-1,0", true),
-                    new PLL("pN", "/-3,0/0,-3/2,0/0,2/-2,0/4,0/0,-2/0,2/-4,1/3,0/", true),
-                    new PLL("pJ", "/-3,0/-3,0/-1,0/0,2/-2,0/4,0/0,-2/0,2/-1,4/0,-3/", true),
-                    new PLL("X", "/3,0/1,0/4,5/0,4/0,4/2,3/0,-1/-3,0/-4,0/1,-2/0,3/-1,0", true),
-                    new PLL("Q", "1,0/5,0/3,3/1,-4/4,0/2,2/0,4/4,-1/3,3/-5,0/-1,0", true),
-                    new PLL("Ka", "/3,3/5,0/0,2/-2,0/4,0/0,-2/0,2/-1,1/3,0/3,3/", true),
-                    new PLL("Kb", "1,0/5,0/-3,-3/0,3/4,0/-2,0/4,0/-4,0/-2,0/-1,0/-3,-3/-2,3/-1,0", true),
-                    new PLL("Sa", "/-3,0/0,-1/-4,0/0,4/0,4/4,0/-4,0/1,-4/3,0/3,-3/", true),
-                    new PLL("Sb", "/3,0/1,0/0,2/4,0/0,4/2,-2/0,4/1,-1/3,0/-3,0/-3,1/-1,0", true),
-                    new PLL("Ba", "/0,3/-3,3/2,1/0,-2/2,0/-4,0/0,2/0,-2/0,1/0,-3/0,-3/", true),
-                    new PLL("Bb", "1,0/2,-4/1,4/-4,0/0,3/1,0/-1,4/0,4/4,0/2,0/-1,0/-3,0/", true),
-                    new PLL("Ca", "0,-1/-3,0/3,0/0,1/3,0/1,0/-2,0/2,-1/0,1/-4,0/-5,0/-4,0/-1,0/-3,0/", true),
-                    new PLL("Cb", "/3,0/1,0/4,0/5,0/4,0/0,-1/-2,1/2,0/-1,0/-3,0/0,-1/-3,0/3,0/0,1", true),
-                    new PLL("Da", "/3,0/1,0/-2,0/-4,0/0,-4/1,-4/-1,0/0,-3/4,0/-1,-4/-2,4/-1,0", true),
-                    new PLL("Db", "/0,3/0,3/0,-1/0,2/0,-2/4,0/-2,0/0,2/-2,-1/3,-3/0,-3/", true),
-                    new PLL("Pa", "/-3,0/3,-3/3,0/-1,0/0,2/-2,0/4,0/0,-2/0,2/-4,1/3,0/", true),
-                    new PLL("Pb", "/-3,0/4,-1/0,-2/0,2/-4,0/2,0/0,-2/1,0/-3,0/-3,3/3,0/", true)
-            };
+            new PLL("Adj", "/-3,0/0,3/0,-3/0,3/2,0/0,2/-2,0/4,0/0,-2/0,2/-1,4/0,-3/", true),
+            new PLL("Opp", "/3,3/1,0/-2,-2/2,0/2,2/0,-2/-1,-1/0,3/-3,-3/0,2/-2,-2/-1,0", true),
+            new PLL("Oa", "/3,3/1,0/-2,-2/-2,0/2,2/-1,0/-3,-3/1,0/2,2/0,1", true),
+            new PLL("Ob", "/3,3/1,0/-2,-2/2,0/2,2/-1,0/-3,-3/0,2/-2,-2/-1,0", true),
+            new PLL("W", "0,-1/1,-2/-4,0/0,3/1,0/3,-2/-4,0/-4,0/-2,2/-1,0/0,-3/", true),
+            new PLL("M", "/3,0/1,2/2,0/-4,0/4,0/2,0/-1,-2/-3,0/-2,0/-4,2/4,-2/-1,0", true),
+            new PLL("pN", "/-3,0/0,-3/2,0/0,2/-2,0/4,0/0,-2/0,2/-4,1/3,0/", true),
+            new PLL("pJ", "/-3,0/-3,0/-1,0/0,2/-2,0/4,0/0,-2/0,2/-1,4/0,-3/", true),
+            new PLL("X", "/3,0/1,0/4,5/0,4/0,4/2,3/0,-1/-3,0/-4,0/1,-2/0,3/-1,0", true),
+            new PLL("Q", "1,0/5,0/3,3/1,-4/4,0/2,2/0,4/4,-1/3,3/-5,0/-1,0", true),
+            new PLL("Ka", "/3,3/5,0/0,2/-2,0/4,0/0,-2/0,2/-1,1/3,0/3,3/", true),
+            new PLL("Kb", "1,0/5,0/-3,-3/0,3/4,0/-2,0/4,0/-4,0/-2,0/-1,0/-3,-3/-2,3/-1,0", true),
+            new PLL("Sa", "/-3,0/0,-1/-4,0/0,4/0,4/4,0/-4,0/1,-4/3,0/3,-3/", true),
+            new PLL("Sb", "/3,0/1,0/0,2/4,0/0,4/2,-2/0,4/1,-1/3,0/-3,0/-3,1/-1,0", true),
+            new PLL("Ba", "/0,3/-3,3/2,1/0,-2/2,0/-4,0/0,2/0,-2/0,1/0,-3/0,-3/", true),
+            new PLL("Bb", "1,0/2,-4/1,4/-4,0/0,3/1,0/-1,4/0,4/4,0/2,0/-1,0/-3,0/", true),
+            new PLL("Ca", "0,-1/-3,0/3,0/0,1/3,0/1,0/-2,0/2,-1/0,1/-4,0/-5,0/-4,0/-1,0/-3,0/", true),
+            new PLL("Cb", "/3,0/1,0/4,0/5,0/4,0/0,-1/-2,1/2,0/-1,0/-3,0/0,-1/-3,0/3,0/0,1", true),
+            new PLL("Da", "/3,0/1,0/-2,0/-4,0/0,-4/1,-4/-1,0/0,-3/4,0/-1,-4/-2,4/-1,0", true),
+            new PLL("Db", "/0,3/0,3/0,-1/0,2/0,-2/4,0/-2,0/0,2/-2,-1/3,-3/0,-3/", true),
+            new PLL("Pa", "/-3,0/3,-3/3,0/-1,0/0,2/-2,0/4,0/0,-2/0,2/-4,1/3,0/", true),
+            new PLL("Pb", "/-3,0/4,-1/0,-2/0,2/-4,0/2,0/0,-2/1,0/-3,0/-3,3/3,0/", true)
+    };
 
     private static final AuxAlg[] AUX_ALGS = {
             new AuxAlg("N/N1", "/3,-3/-3,3/0,0"),
@@ -263,8 +263,31 @@ public class Finder {
             new AuxAlg("U'/U'13", "/0,0/-5,0/3,0/-1,-1/3,0/-5,1/5,0"),
             new AuxAlg("U'/U'14", "/0,0/-5,3/3,0/-1,-1/3,0/-5,1/5,0"),
             new AuxAlg("U'/U'15", "/0,0/-5,6/3,0/-1,-1/3,0/-5,1/5,0"),
-            new AuxAlg("U'/U'16", "/0,0/-5,-3/3,0/-1,-1/3,0/-5,1/5,0")
-
+            new AuxAlg("U'/U'16", "/0,0/-5,-3/3,0/-1,-1/3,0/-5,1/5,0"),
+            new AuxAlg("O/opp1", "/0,0/1,0 / -1,-1 / 4,1 / -1,-1 / 4,1 / -1,-1 / 6,1"),
+            new AuxAlg("O/opp2", "/0,0/1,3 / -1,-1 / 4,1 / -1,-1 / 4,1 / -1,-1 / 6,1"),
+            new AuxAlg("O/opp3", "/0,0/1,0 / -1,-1 / -2,1 / -1,-1 / -2,1 / -1,-1 / 6,1"),
+            new AuxAlg("O/opp4", "/0,0/1,3 / -1,-1 / -2,1 / -1,-1 / -2,1 / -1,-1 / 6,1"),
+            new AuxAlg("opp/O1", "/0,0/ 1,0 / -1,-1 / 1,-2 / -1,-1 / 1,-2 / -1,-1 / 0,-5"),
+            new AuxAlg("opp/O2", "/0,0/ 4,0 / -1,-1 / 1,-2 / -1,-1 / 1,-2 / -1,-1 / 0,-5"),
+            new AuxAlg("opp/O3", "/0,0/ 1,0 / -1,-1 / 1,4 / -1,-1 / 1,4 / -1,-1 / 0,-5"),
+            new AuxAlg("opp/O4", "/0,0/ 4,0 / -1,-1 / 1,4 / -1,-1 / 1,4 / -1,-1 / 0,-5"),
+            new AuxAlg("J/-1", "/3,-3/3,0/-3,0/0,3/-3,0/0,0"),
+            new AuxAlg("J/-2", "/0,0/3,0/3,-3/3,0/-3,0/0,3/-3,0/0,0"),
+            new AuxAlg("J/-3", "/0,0/6,0/3,-3/3,0/-3,0/0,3/-3,0/0,0"),
+            new AuxAlg("J/-4", "/0,0/-3,0/3,-3/3,0/-3,0/0,3/-3,0/0,0"),
+            new AuxAlg("J/-5", "/0,0/1,0/3,-3/3,0/-3,0/0,3/-3,0/-1,0"),
+            new AuxAlg("J/-6", "/0,0/4,0/3,-3/3,0/-3,0/0,3/-3,0/-1,0"),
+            new AuxAlg("J/-7", "/0,0/-2,0/3,-3/3,0/-3,0/0,3/-3,0/-1,0"),
+            new AuxAlg("J/-8", "/0,0/-5,0/3,-3/3,0/-3,0/0,3/-3,0/-1,0"),
+            new AuxAlg("-/J1", "/3,-3/0,3/-3,0/3,0/-3,0/0,0"),
+            new AuxAlg("-/J2", "/0,0/0,3/3,-3/0,3/-3,0/3,0/-3,0/0,0"),
+            new AuxAlg("-/J3", "/0,0/0,6/3,-3/0,3/-3,0/3,0/-3,0/0,0"),
+            new AuxAlg("-/J4", "/0,0/0,-3/3,-3/0,3/-3,0/3,0/-3,0/0,0"),
+            new AuxAlg("-/J5", "/0,0/0,-1/3,-3/0,3/-3,0/3,0/-3,0/0,1"),
+            new AuxAlg("-/J6", "/0,0/0,-4/3,-3/0,3/-3,0/3,0/-3,0/0,1"),
+            new AuxAlg("-/J7", "/0,0/0,2/3,-3/0,3/-3,0/3,0/-3,0/0,1"),
+            new AuxAlg("-/J8", "/0,0/0,5/3,-3/0,3/-3,0/3,0/-3,0/0,1")
     };
 
     //private PBL[] allStandardPbl = allPbls();
@@ -277,7 +300,7 @@ public class Finder {
         sucessSearches = new ArrayList<>();
     }
 
-    public void check(){
+    public void check() {
         System.out.println("Aimed PBL: " + targetPbl);
 
         System.out.println("Top setup:    " + reversedSequence(targetPbl.getTopPLL().getSequence()));
@@ -288,22 +311,26 @@ public class Finder {
         squareOne.applyStringSequence(reversedSequence(targetPbl.getTopPLL().getSequence()));
         squareOne.applyStringSequence(reversedSequence(targetPbl.getBottomPLL().sequenceAtBottom()));
 
-        System.out.println("PBL " + targetPbl.getName() + " applied to the cube! This is the square-1 view:");
+        System.out.println("PBL " + targetPbl.getName() + " was applied to the cube! This is the square-1 view:");
         System.out.println(squareOne);
 
         System.out.println();
         System.out.println("Searching...");
         long i = System.currentTimeMillis();
-        for (AuxAlg a : Finder.AUX_ALGS){
-            for (AuxAlg b : Finder.AUX_ALGS){
+        for (AuxAlg a : Finder.AUX_ALGS) {
+            for (AuxAlg b : Finder.AUX_ALGS) {
 
                 String testSolveSeq = a.getSequence() + b.getSequence();
                 squareOne.applyStringSequence(testSolveSeq);
 
-                if (isSolved(squareOne)){
+                if (isSolved(squareOne)) {
                     long elapesedTime = System.currentTimeMillis() - i;
                     System.out.println("FOUND!!");
-                    System.out.println("The sequence " + testSolveSeq + " solves the passed PBL!!");
+
+                    System.out.println("The sequence\n" +
+                            testSolveSeq.replaceAll(" ", "") + "[" + a.getName() + "|" + b.getName() +
+                            "]\nsolves the passed PBL!!");
+
                     System.out.println("Search time for single solution was " + elapesedTime + " miliseconds.");
                     return;
                 } else {
@@ -312,13 +339,13 @@ public class Finder {
             }
         }
 
-        System.out.println("Couldn't find a sequence! :(");
+        System.err.println("Couldn't find a sequence! :(");
         System.out.println("Elapsed time: " + (System.currentTimeMillis() - i));
     }
 
     private String reversedSequence(String algorithm) {
         ArrayList<String> hold = new ArrayList<>();
-        ArrayList<String> aux = new ArrayList<>(Arrays.asList(algorithm.split("/")));
+        ArrayList<String> aux = new ArrayList<>(Arrays.asList(algorithm.replaceAll(" ", "").split("/")));
 
         Collections.reverse(aux);
 
@@ -337,20 +364,20 @@ public class Finder {
         return r;
     }
 
-    public static PBL[] allPbls(){
+    public static PBL[] allPbls() {
         ArrayList<PBL> r = new ArrayList<>();
         int counter = 0;
 
-        for (PLL top : Finder.STANDARD_PLLs){
-            for (PLL bottom : Finder.STANDARD_PLLs){
+        for (PLL top : Finder.STANDARD_PLLs) {
+            for (PLL bottom : Finder.STANDARD_PLLs) {
                 r.add(new PBL(counter + "", top, bottom));
                 counter++;
             }
         }
 
         counter = 0;
-        for (PLL top : Finder.PARITY_PLLs){
-            for (PLL bottom : Finder.PARITY_PLLs){
+        for (PLL top : Finder.PARITY_PLLs) {
+            for (PLL bottom : Finder.PARITY_PLLs) {
                 r.add(new PBL(counter + "*", top, bottom));
                 counter++;
             }
@@ -359,43 +386,43 @@ public class Finder {
         return r.toArray(new PBL[r.size()]);
     }
 
-    private boolean isSolved(SquareOne targetSquare){
+    private boolean isSolved(SquareOne targetSquare) {
         SquareOne aSolvedSquareOne = new SquareOne();
         aSolvedSquareOne.setColorScheme(targetSquare.getColorScheme());
 
         boolean currentEquals = false;
 
-        ArrayList<Piece> topTop= new ArrayList<>();
+        ArrayList<Piece> topTop = new ArrayList<>();
         topTop.addAll(Arrays.asList(aSolvedSquareOne.getTopPieces()));
         topTop.addAll(Arrays.asList(aSolvedSquareOne.getTopPieces()));
         Piece[] targetTop = targetSquare.getTopPieces();
 
-        for (int i = 0; i < topTop.size() - targetTop.length; i++){
+        for (int i = 0; i < topTop.size() - targetTop.length; i++) {
             for (int j = 0; j < targetTop.length; j++) {
                 currentEquals = Arrays.equals(targetTop[j].getColors(), topTop.get(i + j).getColors());
-                if (!currentEquals){
+                if (!currentEquals) {
                     break;
                 }
             }
-            if (currentEquals){
+            if (currentEquals) {
                 break;
             }
         }
 
-        if (currentEquals){
+        if (currentEquals) {
             ArrayList<Piece> bottomBottom = new ArrayList<>();
             bottomBottom.addAll(Arrays.asList(aSolvedSquareOne.getBottomPieces()));
             bottomBottom.addAll(Arrays.asList(aSolvedSquareOne.getBottomPieces()));
             Piece[] targetBottom = targetSquare.getBottomPieces();
 
-            for (int i = 0; i < bottomBottom.size() - targetBottom.length; i++){
+            for (int i = 0; i < bottomBottom.size() - targetBottom.length; i++) {
                 for (int j = 0; j < targetBottom.length; j++) {
                     currentEquals = Arrays.equals(targetBottom[j].getColors(), bottomBottom.get(i + j).getColors());
-                    if (!currentEquals){
+                    if (!currentEquals) {
                         break;
                     }
                 }
-                if (currentEquals){
+                if (currentEquals) {
                     break;
                 }
             }
