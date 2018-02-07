@@ -4,10 +4,12 @@ public class SucessSearch {
 
     private PBL targetedPbl;
     private String sequence;
+    private AuxAlg[] auxAlgs;
 
-    public SucessSearch(PBL targetedPbl, String sequence) {
+    public SucessSearch(PBL targetedPbl, String sequence, AuxAlg... auxAlgs) {
         this.targetedPbl = targetedPbl;
         this.sequence = sequence;
+        this.auxAlgs = auxAlgs;
     }
 
     public PBL getTargetedPbl() {
@@ -26,8 +28,25 @@ public class SucessSearch {
         this.sequence = sequence;
     }
 
+    public AuxAlg[] getAuxAlgs() {
+        return auxAlgs;
+    }
+
+    public void setAuxAlgs(AuxAlg[] auxAlgs) {
+        this.auxAlgs = auxAlgs;
+    }
+
     @Override
     public String toString() {
-        return targetedPbl.getTopPLL().getName() + "/" + targetedPbl.getBottomPLL().getName() + ": " + sequence;
+        String r = targetedPbl.getTopPLL().getName() + "/" + targetedPbl.getBottomPLL().getName() + ": " + sequence;
+
+        r += "[";
+        for (AuxAlg x : auxAlgs){
+            r += x.getName() + ",";
+        }
+
+        r += ";]";
+
+        return r.replaceAll(",]", "");
     }
 }
