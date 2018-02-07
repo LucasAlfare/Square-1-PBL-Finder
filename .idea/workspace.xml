@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f3b217f1-fe90-4f9f-bc2c-8ad65e06d6c2" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Square_1_Object.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Square-1 PBL Finder.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/com/main/pbl/AuxAlg.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/com/main/pbl/Finder.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/com/main/pbl/Main.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/com/main/pbl/PBL.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/com/main/pbl/PLL.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/com/main/pbl/Finder.java" afterPath="$PROJECT_DIR$/src/com/main/pbl/Finder.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,8 +41,8 @@
       <file leaf-file-name="Finder.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/main/pbl/Finder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="177">
+              <caret line="395" column="5" lean-forward="true" selection-start-line="395" selection-start-column="5" selection-end-line="395" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#17760#17761#0" expanded="true" />
@@ -102,7 +94,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="20" />
     <option name="y" value="20" />
     <option name="width" value="1400" />
@@ -295,15 +287,23 @@
       <updated>1517933861531</updated>
       <workItem from="1517933863612" duration="2631000" />
       <workItem from="1517959956658" duration="5001000" />
-      <workItem from="1518005911629" duration="9920000" />
+      <workItem from="1518005911629" duration="10280000" />
     </task>
+    <task id="LOCAL-00001" summary="commit test">
+      <created>1518017253679</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1518017253680</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17552000" />
+    <option name="totallyTimeSpent" value="17912000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -340,6 +340,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit test" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -596,8 +600,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/main/pbl/Finder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="177">
+          <caret line="395" column="5" lean-forward="true" selection-start-line="395" selection-start-column="5" selection-end-line="395" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#17760#17761#0" expanded="true" />
