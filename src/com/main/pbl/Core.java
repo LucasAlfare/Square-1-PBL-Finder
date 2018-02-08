@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class Core {
 
     private Gui gui;
-    private boolean finished;
 
     public Core(Gui gui) {
         this.gui = gui;
