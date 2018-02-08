@@ -26,21 +26,28 @@ public class Finder {
         squareOne.applyStringSequence(reversedSequence(targetPbl.getBottomPLL().sequenceAtBottom()));
 
         long i = System.currentTimeMillis();
-        for (AuxAlg a : AlgTemplates.AUX_ALGS) {
-            for (AuxAlg b : AlgTemplates.AUX_ALGS) {
-                searching = true;
 
-                String testSolveSeq = a.getSequence() + b.getSequence();
-                squareOne.applyStringSequence(testSolveSeq);
+//        Thread a = new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+                for (AuxAlg a : AlgTemplates.AUX_ALGS) {
+                    for (AuxAlg b : AlgTemplates.AUX_ALGS) {
+                        searching = true;
 
-                if (isSolved(squareOne)) {
-                    elapsedTime = System.currentTimeMillis() - i;
-                    sucessSearches.add(new SucessSearch(targetPbl, testSolveSeq, a, b));
-                } else {
-                    squareOne.applyStringSequence(reversedSequence(testSolveSeq));
+                        String testSolveSeq = a.getSequence() + b.getSequence();
+                        squareOne.applyStringSequence(testSolveSeq);
+
+                        if (isSolved(squareOne)) {
+                            elapsedTime = System.currentTimeMillis() - i;
+                            sucessSearches.add(new SucessSearch(targetPbl, testSolveSeq, a, b));
+                        } else {
+                            squareOne.applyStringSequence(reversedSequence(testSolveSeq));
+                        }
+                    }
                 }
-            }
-        }
+//            }
+//        });
+//        a.start();
 
         searching = false;
     }

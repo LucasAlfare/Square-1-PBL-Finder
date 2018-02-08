@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class Core {
 
     private Gui gui;
+    private boolean finished;
 
     public Core(Gui gui) {
         this.gui = gui;
@@ -42,34 +43,82 @@ public class Core {
         gui.getFindSolutionsBt().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (gui.getTopPllList().getSelectedIndex() != -1 && gui.getBottomPllList().getSelectedIndex() != -1){
+                    final PBL userPBL = new PBL(
+                            gui.getTopPllList().getSelectedValue() + "/" + gui.getBottomPllList().getSelectedValue(),
+                            AlgTemplates.getPllByName(gui.getTopPllList().getSelectedValue()),
+                            AlgTemplates.getPllByName(gui.getBottomPllList().getSelectedValue())
+                    );
+                    Finder finder = new Finder(userPBL);
 
-                System.out.println("OOOOIIIII");
+                    Thread a = new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            while (true){
+                                try {
+                                    Thread.sleep(200);
+                                } catch (InterruptedException e1) {
+                                    e1.printStackTrace();
+                                }
 
-                final PBL userPBL = new PBL(
-                        gui.getTopPllList().getSelectedValue() + "/" + gui.getBottomPllList().getSelectedValue(),
-                        AlgTemplates.getPllByName(gui.getTopPllList().getSelectedValue()),
-                        AlgTemplates.getPllByName(gui.getBottomPllList().getSelectedValue())
-                );
+                                gui.getRemoveAlgorithmBt().setEnabled(!finder.isSearching());
+                                gui.getClearBt().setEnabled(!finder.isSearching());
+                                gui.getAddAlgorithmBt().setEnabled(!finder.isSearching());
+                                gui.getFindSolutionsBt().setEnabled(!finder.isSearching());
 
-                Finder finder = new Finder(userPBL);
+                                gui.getLogLabel().setText(finder.isSearching() ? "searching..." : "finished");
+                                gui.getLogLabel().setForeground(finder.isSearching() ? Color.RED : Color.BLACK);
 
-                Thread thread = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        finder.search();
+                                if (!finder.isSearching()){
+                                    JOptionPane.showMessageDialog(gui,
+                                            "Foram encontradas " + finder.getSucessSearches().size() +
+                                                    " soluções em " + finder.getElapsedTime() + " milissegundos!");
 
-                        for (SucessSearch s : finder.getSucessSearches()) {
-                            gui.getOutputArea().append(s.toString() + "\n\n");
+                                    gui.getOutputArea().setText("");
+                                    gui.getOutputArea().append("Foram encontradas " + finder.getSucessSearches().size() +
+                                            " soluções em " + finder.getElapsedTime() + " milissegundos!\n\n\n\n");
+                                    for (SucessSearch x : finder.getSucessSearches()){
+                                        gui.getOutputArea().append(x.toString() + "\n\n");
+                                    }
+
+                                    break;
+                                }
+                            }
                         }
-                    }
-                });
+                    });
+                    a.start();
 
-                try {
-                    thread.join();
-                } catch (InterruptedException e1) {
-                    e1.printStackTrace();
+                    Thread b = new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            finder.search();
+                        }
+                    });
+                    b.start();
+                } else {
+                    JOptionPane.showMessageDialog(gui, "SELECIONE AS PLLs CORRETAMENTE!!");
                 }
-                thread.start();
+            }
+        });
+
+        gui.getClearBt().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                gui.getOutputArea().setText("");
+            }
+        });
+
+        gui.getAddAlgorithmBt().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(gui, "NÃO IMPLEMENTEI AINDA, CALMA");
+            }
+        });
+
+        gui.getRemoveAlgorithmBt().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(gui, "NÃO IMPLEMENTEI AINDA, CALMA");
             }
         });
     }
