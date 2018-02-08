@@ -40,6 +40,7 @@ public class Finder {
                         if (isSolved(squareOne)) {
                             elapsedTime = System.currentTimeMillis() - i;
                             sucessSearches.add(new SucessSearch(targetPbl, testSolveSeq, a, b));
+                            squareOne.applyStringSequence(reversedSequence(testSolveSeq));
                         } else {
                             squareOne.applyStringSequence(reversedSequence(testSolveSeq));
                         }
