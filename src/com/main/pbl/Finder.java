@@ -50,6 +50,7 @@ public class Finder {
 //        a.start();
 
         searching = false;
+        elapsedTime = System.currentTimeMillis() - i;
     }
 
     @Deprecated
