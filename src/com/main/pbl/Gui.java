@@ -16,7 +16,7 @@ public class Gui extends javax.swing.JFrame {
 
         setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("Square-1 Simple PBL Finder v1.0 alfa by Anuar and Lucas");
+        setTitle("Square-1 Simple PBL Finder v1.0.1 alfa by Anuar and Lucas");
     }
 
     private void initComponents() {

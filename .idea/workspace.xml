@@ -8,7 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f3b217f1-fe90-4f9f-bc2c-8ad65e06d6c2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/com/main/pbl/Finder.java" afterPath="$PROJECT_DIR$/src/com/main/pbl/Finder.java" />
+      <change beforePath="$PROJECT_DIR$/out/production/Square-1 PBL Finder/com/main/pbl/Finder.class" afterPath="$PROJECT_DIR$/out/production/Square-1 PBL Finder/com/main/pbl/Finder.class" />
+      <change beforePath="$PROJECT_DIR$/src/com/main/pbl/Gui.java" afterPath="$PROJECT_DIR$/src/com/main/pbl/Gui.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,21 +67,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Gui.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Gui.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/main/pbl/Gui.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="30" column="51" lean-forward="true" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
+            <state relative-caret-position="181">
+              <caret line="18" column="50" lean-forward="false" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Finder.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Finder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/main/pbl/Finder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+            <state relative-caret-position="34">
+              <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#check#0;class#Finder#0" expanded="false" />
@@ -135,8 +136,8 @@
         <option value="$PROJECT_DIR$/src/com/main/pbl/SucessSearch.java" />
         <option value="$PROJECT_DIR$/src/com/main/pbl/Main.java" />
         <option value="$PROJECT_DIR$/src/com/main/pbl/Core.java" />
-        <option value="$PROJECT_DIR$/src/com/main/pbl/Gui.java" />
         <option value="$PROJECT_DIR$/src/com/main/pbl/Finder.java" />
+        <option value="$PROJECT_DIR$/src/com/main/pbl/Gui.java" />
       </list>
     </option>
   </component>
@@ -341,7 +342,7 @@
       <workItem from="1517933863612" duration="2631000" />
       <workItem from="1517959956658" duration="5001000" />
       <workItem from="1518005911629" duration="10958000" />
-      <workItem from="1518023852439" duration="23544000" />
+      <workItem from="1518023852439" duration="23625000" />
     </task>
     <task id="LOCAL-00001" summary="commit test">
       <created>1518017253679</created>
@@ -420,11 +421,18 @@
       <option name="project" value="LOCAL" />
       <updated>1518053689845</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fixed reseting cube">
+      <created>1518053834858</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1518053834858</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42134000" />
+    <option name="totallyTimeSpent" value="42215000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
@@ -474,7 +482,8 @@
     <MESSAGE value="little clean" />
     <MESSAGE value="added gui/ui" />
     <MESSAGE value="fixed gui tittle" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed gui tittle" />
+    <MESSAGE value="fixed reseting cube" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed reseting cube" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -825,14 +834,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/main/pbl/Gui.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="30" column="51" lean-forward="true" selection-start-line="30" selection-start-column="51" selection-end-line="30" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/main/pbl/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -843,8 +844,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/main/pbl/Finder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="14" column="30" lean-forward="true" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        <state relative-caret-position="34">
+          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#check#0;class#Finder#0" expanded="false" />
@@ -865,6 +866,14 @@
             <element signature="e#7890#7891#0" expanded="true" />
             <element signature="e#7942#7943#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/main/pbl/Gui.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="18" column="50" lean-forward="false" selection-start-line="18" selection-start-column="50" selection-end-line="18" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
