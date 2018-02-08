@@ -1,7 +1,6 @@
 package com.main.pbl;
 
-import com.main.puzzle.Piece;
-import com.main.puzzle.SquareOne;
+import com.cs.main.puzzle.FullCube;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,6 +12,7 @@ public class Finder {
     private ArrayList<SucessSearch> sucessSearches;
     private long elapsedTime;
     private boolean searching;
+    private String setups;
 
     public Finder(PBL targetPbl) {
         this.targetPbl = targetPbl;
@@ -21,9 +21,15 @@ public class Finder {
     }
 
     public void search(){
-        SquareOne squareOne = new SquareOne();
+//        SquareOne squareOne = new SquareOne();
+
+        FullCube squareOne = new FullCube();
         squareOne.applyStringSequence(reversedSequence(targetPbl.getTopPLL().getSequence()));
         squareOne.applyStringSequence(reversedSequence(targetPbl.getBottomPLL().sequenceAtBottom()));
+
+        setups = "Setups aplicados:\n";
+        setups += reversedSequence(targetPbl.getTopPLL().getSequence()) + ";\n" +
+                reversedSequence(targetPbl.getBottomPLL().sequenceAtBottom())+ ";\n\n";
 
         long i = System.currentTimeMillis();
 
@@ -54,101 +60,19 @@ public class Finder {
         elapsedTime = System.currentTimeMillis() - i;
     }
 
-    @Deprecated
-    public void check() {
-        System.out.println("Aimed PBL: " + targetPbl);
-
-        System.out.println("Top setup:    " + reversedSequence(targetPbl.getTopPLL().getSequence()));
-        System.out.println("Bottom setup: " + reversedSequence(targetPbl.getBottomPLL().sequenceAtBottom()));
-        System.out.println();
-
-        SquareOne squareOne = new SquareOne();
-        squareOne.applyStringSequence(reversedSequence(targetPbl.getTopPLL().getSequence()));
-        squareOne.applyStringSequence(reversedSequence(targetPbl.getBottomPLL().sequenceAtBottom()));
-
-        System.out.println("PBL " + targetPbl.getName() + " was applied to the cube! This is the square-1 view:");
-        System.out.println(squareOne);
-
-        System.out.println();
-        System.out.println("Searching...");
-        long i = System.currentTimeMillis();
-        for (AuxAlg a : AlgTemplates.AUX_ALGS) {
-            for (AuxAlg b : AlgTemplates.AUX_ALGS) {
-
-                String testSolveSeq = a.getSequence() + b.getSequence();
-                squareOne.applyStringSequence(testSolveSeq);
-
-                if (isSolved(squareOne)) {
-                    //long elapesedTime = System.currentTimeMillis() - i;
-                    System.out.println("FOUND!!");
-
-                    System.out.println("The sequence\n" +
-                            testSolveSeq.replaceAll(" ", "") + "[" + a.getName() + "|" + b.getName() +
-                            "]\nsolves the passed PBL!!");
-
-                    //System.out.println("Search time for single solution was " + elapesedTime + " miliseconds.");
-                    sucessSearches.add(new SucessSearch(targetPbl, testSolveSeq));
-                    System.out.println();
-                    System.out.println();
-                    //return;
-                } else {
-                    squareOne.applyStringSequence(reversedSequence(testSolveSeq));
-                }
-            }
-        }
-
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println("Solutions foud: " + sucessSearches.size());
-        //System.err.println("Couldn't find a sequence! :(");
-        System.out.println("Elapsed time: " + (System.currentTimeMillis() - i));
-    }
-
     //TODO: verificar faces em apenas 1 loop
-    private boolean isSolved(SquareOne targetSquare) {
-        SquareOne aSolvedSquareOne = new SquareOne();
-        aSolvedSquareOne.setColorScheme(targetSquare.getColorScheme());
+    private boolean isSolved(FullCube targetSquare) {
+        FullCube solved = new FullCube();
+        ArrayList<Byte> topSolvedBytes = new ArrayList<>();
+        topSolvedBytes.addAll(Arrays.asList(solved.getPieces(true)));
+        topSolvedBytes.addAll(Arrays.asList(solved.getPieces(true)));
 
-        boolean currentEquals = false;
+        ArrayList<Byte> bottomSolvedBytes = new ArrayList<>();
+        bottomSolvedBytes.addAll(Arrays.asList(solved.getPieces(false)));
+        bottomSolvedBytes.addAll(Arrays.asList(solved.getPieces(false)));
 
-        ArrayList<Piece> topTop = new ArrayList<>();
-        topTop.addAll(Arrays.asList(aSolvedSquareOne.getTopPieces()));
-        topTop.addAll(Arrays.asList(aSolvedSquareOne.getTopPieces()));
-        Piece[] targetTop = targetSquare.getTopPieces();
-
-        for (int i = 0; i < topTop.size() - targetTop.length; i++) {
-            for (int j = 0; j < targetTop.length; j++) {
-                currentEquals = Arrays.equals(targetTop[j].getColors(), topTop.get(i + j).getColors());
-                if (!currentEquals) {
-                    break;
-                }
-            }
-            if (currentEquals) {
-                break;
-            }
-        }
-
-        if (currentEquals) {
-            ArrayList<Piece> bottomBottom = new ArrayList<>();
-            bottomBottom.addAll(Arrays.asList(aSolvedSquareOne.getBottomPieces()));
-            bottomBottom.addAll(Arrays.asList(aSolvedSquareOne.getBottomPieces()));
-            Piece[] targetBottom = targetSquare.getBottomPieces();
-
-            for (int i = 0; i < bottomBottom.size() - targetBottom.length; i++) {
-                for (int j = 0; j < targetBottom.length; j++) {
-                    currentEquals = Arrays.equals(targetBottom[j].getColors(), bottomBottom.get(i + j).getColors());
-                    if (!currentEquals) {
-                        break;
-                    }
-                }
-                if (currentEquals) {
-                    break;
-                }
-            }
-        }
-
-        return currentEquals;
+        return (Collections.indexOfSubList(topSolvedBytes, Arrays.asList(targetSquare.getPieces(true))) != -1) &&
+                (Collections.indexOfSubList(bottomSolvedBytes, Arrays.asList(targetSquare.getPieces(false))) != -1);
     }
 
     private String reversedSequence(String algorithm) {
@@ -225,5 +149,13 @@ public class Finder {
 
     public void setSucessSearches(ArrayList<SucessSearch> sucessSearches) {
         this.sucessSearches = sucessSearches;
+    }
+
+    public String getSetups() {
+        return setups;
+    }
+
+    public void setSetups(String setups) {
+        this.setups = setups;
     }
 }
