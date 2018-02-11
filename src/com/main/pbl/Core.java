@@ -114,7 +114,7 @@ public class Core {
                 if (!gui.getNewAlgorithmField().getText().equals("")){
                     auxAuxAlgs.clear();
                     String[] userAlg = gui.getNewAlgorithmField().getText()
-                            .replaceAll(" ", "").replaceAll("\\(", "").replaceAll("\\)", "").split(",");
+                            .replaceAll(" ", "").replaceAll("\\(", "").replaceAll("\\)", "").split("@");
                     AlgTemplates.AUX_ALGS.add(new AuxAlg(userAlg[0], userAlg[1]));
 
                     for (AuxAlg x : AlgTemplates.AUX_ALGS) {
