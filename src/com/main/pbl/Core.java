@@ -111,14 +111,40 @@ public class Core {
         gui.getAddAlgorithmBt().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(gui, "NÃO IMPLEMENTEI AINDA, CALMA");
+                if (!gui.getNewAlgorithmField().getText().equals("")){
+                    auxAuxAlgs.clear();
+                    String[] userAlg = gui.getNewAlgorithmField().getText()
+                            .replaceAll(" ", "").replaceAll("\\(", "").replaceAll("\\)", "").split(",");
+                    AlgTemplates.AUX_ALGS.add(new AuxAlg(userAlg[0], userAlg[1]));
+
+                    for (AuxAlg x : AlgTemplates.AUX_ALGS) {
+                        auxAuxAlgs.add(x.toString());
+                    }
+
+                    refreshList(gui.getAuxiliarAlgorithmsList(), auxAuxAlgs.toArray(new String[auxAuxAlgs.size()]));
+                } else {
+                    JOptionPane.showMessageDialog(gui, "DIGITE NO FORMATO: 'nome,alg'");
+                }
             }
         });
+
+        //now program adds/removes custom user algs
 
         gui.getRemoveAlgorithmBt().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(gui, "NÃO IMPLEMENTEI AINDA, CALMA");
+                int selectedIndext = gui.getAuxiliarAlgorithmsList().getSelectedIndex();
+
+                if (selectedIndext != -1){
+                    AlgTemplates.AUX_ALGS.remove(selectedIndext);
+                    auxAuxAlgs.clear();
+                    for (AuxAlg x : AlgTemplates.AUX_ALGS) {
+                        auxAuxAlgs.add(x.toString());
+                    }
+                    refreshList(gui.getAuxiliarAlgorithmsList(), auxAuxAlgs.toArray(new String[auxAuxAlgs.size()]));
+                } else {
+                    JOptionPane.showMessageDialog(gui, "PRA DELETAR TEM QUE SELECIONAR ALGUM!");
+                }
             }
         });
     }

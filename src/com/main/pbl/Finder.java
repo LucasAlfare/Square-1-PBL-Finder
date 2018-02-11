@@ -1,6 +1,6 @@
 package com.main.pbl;
 
-import com.cs.main.puzzle.FullCube;
+import com.cs.main.puzzle.Cube;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,7 +23,7 @@ public class Finder {
     public void search(){
 //        SquareOne squareOne = new SquareOne();
 
-        FullCube squareOne = new FullCube();
+        Cube squareOne = new Cube();
         squareOne.applyStringSequence(reversedSequence(targetPbl.getTopPLL().getSequence()));
         squareOne.applyStringSequence(reversedSequence(targetPbl.getBottomPLL().sequenceAtBottom()));
 
@@ -61,8 +61,8 @@ public class Finder {
     }
 
     //TODO: verificar faces em apenas 1 loop
-    private boolean isSolved(FullCube targetSquare) {
-        FullCube solved = new FullCube();
+    private boolean isSolved(Cube targetSquare) {
+        Cube solved = new Cube();
         ArrayList<Byte> topSolvedBytes = new ArrayList<>();
         topSolvedBytes.addAll(Arrays.asList(solved.getPieces(true)));
         topSolvedBytes.addAll(Arrays.asList(solved.getPieces(true)));
