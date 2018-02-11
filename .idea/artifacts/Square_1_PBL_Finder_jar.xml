@@ -2,11 +2,8 @@
   <artifact type="jar" name="Square-1 PBL Finder:jar">
     <output-path>$USER_HOME$/Desktop</output-path>
     <root id="archive" name="Square-1 PBL Finder.jar">
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$USER_HOME$/Desktop/META-INF/MANIFEST.MF" />
-      </element>
       <element id="module-output" name="Square-1 PBL Finder" />
-      <element id="extracted-dir" path="$USER_HOME$/Desktop/Square-1 Object.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/Square-1 cs Object.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

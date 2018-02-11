@@ -128,8 +128,6 @@ public class Core {
             }
         });
 
-        //now program adds/removes custom user algs
-
         gui.getRemoveAlgorithmBt().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

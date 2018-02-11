@@ -12,8 +12,6 @@ public class PLL {
         this.isParityPLL = isParityPLL;
     }
 
-    //TODO
-    //"1,0/-1,-1/-3,0/3,0/1,4/-3,0/3,0/2,-4/-3,0/0,1"
     public String sequenceAtBottom(){
         String prefix = sequence.startsWith("/") ? "/6,6/-1,1" : "/6,6/-1,1/0,0/";
         String sufix = !sequence.endsWith("/") ? "/6,6/-1,1" : "1,-1/6,6/";
