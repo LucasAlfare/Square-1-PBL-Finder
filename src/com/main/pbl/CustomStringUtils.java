@@ -24,12 +24,16 @@ public class CustomStringUtils {
                 aux.remove(indexOfZeros);
                 aux.remove(indexOfZeros - 1);
 
-                //a+c,b+d
-                String novoPar =
-                        (Integer.parseInt(previousPair[0]) + Integer.parseInt(nextPair[0])) + "," +
-                                (Integer.parseInt(previousPair[1]) + Integer.parseInt(nextPair[1]));
+                int a = (Integer.parseInt(previousPair[0]) + Integer.parseInt(nextPair[0]));
+                int b = (Integer.parseInt(previousPair[1]) + Integer.parseInt(nextPair[1]));
 
+                int x = a > 6 ? ((12 - a) * -1) : (a < 0 ? (a < -6 ? 12 - a : a) : a);
+                int y = b > 6 ? ((12 - b) * -1) : (b < 0 ? (b < -6 ? 12 - b : b) : b);
+
+                //a+c,b+d
+                String novoPar = x + "," + y;
                 aux.add(indexOfZeros - 1, novoPar);
+
                 return otimizedSequence(strListToSequence(aux, velha));
             }
             else if (indexOfZeros == 0){ //no começo..

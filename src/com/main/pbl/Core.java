@@ -78,7 +78,7 @@ public class Core {
                                     gui.getOutputArea().append("Foram encontradas " + finder.getSucessSearches().size() +
                                             " soluções em " + finder.getElapsedTime() + " milissegundos!\n\n\n\n");
                                     for (SucessSearch x : finder.getSucessSearches()){
-                                        gui.getOutputArea().append(x.toString() + "\n\n");
+                                        gui.getOutputArea().append(x + "\n\n");
                                     }
 
                                     break;
