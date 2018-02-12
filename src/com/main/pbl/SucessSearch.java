@@ -20,10 +20,6 @@ public class SucessSearch {
         this.targetedPbl = targetedPbl;
     }
 
-    public String getSequence() {
-        return sequence;
-    }
-
     public void setSequence(String sequence) {
         this.sequence = sequence;
     }
@@ -38,15 +34,15 @@ public class SucessSearch {
 
     @Override
     public String toString() {
-        String r = targetedPbl.getTopPLL().getName() + "/" + targetedPbl.getBottomPLL().getName() + ": " + sequence;
+        StringBuilder r = new StringBuilder(
+                targetedPbl.getTopPLL().getName() + "/" + targetedPbl.getBottomPLL().getName() + ": " + CustomStringUtils.otimizedSequence(sequence));
 
-        r += "[";
+        r.append("   Algs: [");
         for (AuxAlg x : auxAlgs){
-            r += x.getName() + "|";
+            r.append(x.getName()).append(" | ");
         }
+        r.append("]");
 
-        r += ";]";
-
-        return r.replaceAll(",;", "");
+        return r.toString().replaceAll("\\| ]", "]");
     }
 }

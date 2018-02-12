@@ -22,12 +22,20 @@ public class Finder {
 
     public void search() {
         Cube squareOne = new Cube();
-        squareOne.applyStringSequence(reversedSequence(targetPbl.getTopPLL().getSequence()));
-        squareOne.applyStringSequence(reversedSequence(targetPbl.getBottomPLL().sequenceAtBottom()));
+        String seqA = CustomStringUtils.otimizedSequence(
+                CustomStringUtils.reversedSequence(targetPbl.getTopPLL().getSequence()));
 
-        setups = "Setups aplicados:\n";
-        setups += reversedSequence(targetPbl.getTopPLL().getSequence()) + ";\n" +
-                reversedSequence(targetPbl.getBottomPLL().sequenceAtBottom()) + ";\n\n";
+        String seqB = CustomStringUtils.otimizedSequence(
+                CustomStringUtils.reversedSequence(targetPbl.getBottomPLL().sequenceAtBottom()));
+
+        squareOne.applyStringSequence(seqA);
+        squareOne.applyStringSequence(seqB);
+
+        setups = "PBL: " + targetPbl.getName() + "\n";
+        setups += "Setups aplicados:\n";
+        setups +=
+                seqA + ";\n" +
+                seqB + ";\n\n";
 
         long i = System.currentTimeMillis();
         for (AuxAlg a : AlgTemplates.AUX_ALGS) {
@@ -40,9 +48,9 @@ public class Finder {
                 if (isSolved(squareOne)) {
                     elapsedTime = System.currentTimeMillis() - i;
                     sucessSearches.add(new SucessSearch(targetPbl, testSolveSeq, a, b));
-                    squareOne.applyStringSequence(reversedSequence(testSolveSeq));
+                    squareOne.applyStringSequence(CustomStringUtils.reversedSequence(testSolveSeq));
                 } else {
-                    squareOne.applyStringSequence(reversedSequence(testSolveSeq));
+                    squareOne.applyStringSequence(CustomStringUtils.reversedSequence(testSolveSeq));
                 }
             }
         }
@@ -69,41 +77,6 @@ public class Finder {
 
         return (Collections.indexOfSubList(topSolvedBytes, Arrays.asList(targetSquare.getPieces(true))) != -1) &&
                 (Collections.indexOfSubList(bottomSolvedBytes, Arrays.asList(targetSquare.getPieces(false))) != -1);
-    }
-
-    /**
-     * Reverses a square-1 sequence.
-     * Example:
-     * original ->  (1,-3)/
-     * out      -> /(-1,3)
-     *
-     * @param algorithm original sequence do be reversed.
-     * @return a reversed string from original param.
-     */
-    private String reversedSequence(String algorithm) {
-        ArrayList<String> hold = new ArrayList<>();
-        //cleans and splits
-        ArrayList<String> aux = new ArrayList<>(Arrays.asList(algorithm.replaceAll(" ", "").split("/")));
-
-        //reverses
-        Collections.reverse(aux);
-
-        //inverses
-        for (String x : aux) {
-            String[] aux2 = x.split(",");
-            if (!x.equals("")) {
-                hold.add((Integer.parseInt(aux2[0]) * -1) + "," + (Integer.parseInt(aux2[1]) * -1));
-            }
-        }
-
-        //cleans toString list
-        String r = hold.toString().replaceAll(", ", "/").replaceAll("\\[", "").replaceAll("]", "").replaceAll(" ", "");
-
-        //readds twists
-        if (algorithm.startsWith("/")) r += "/";
-        if (algorithm.endsWith("/")) r = "/" + r;
-
-        return r;
     }
 
     /**
