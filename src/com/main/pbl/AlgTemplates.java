@@ -3,8 +3,15 @@ package com.main.pbl;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Essa classe guarda algoritmos em forma de String para serem usados nas mais
+ * diversas operações.
+ */
 public class AlgTemplates {
 
+    /**
+     * PLLs padrão
+     */
     public static final ArrayList<PLL> STANDARD_PLLs = new ArrayList<>(Arrays.asList(
             new PLL("Ua", "/3,0/1,0/0,-3/-1,0/-3,0/1,0/0,3/-1,0", false),
             new PLL("Ub", "1,0/0,-3/-1,0/3,0/1,0/0,3/-1,0/-3,0/", false),
@@ -29,6 +36,9 @@ public class AlgTemplates {
             new PLL("V", "1,0/3,0/-4,-1/0,-3/3,0/1,-2/0,3/0,3/-4,-1/0,1", false))
     );
 
+    /**
+     * PLLs de paridade
+     */
     public static final ArrayList<PLL> PARITY_PLLs = new ArrayList<>(Arrays.asList(
             new PLL("Adj", "/-3,0/0,3/0,-3/0,3/2,0/0,2/-2,0/4,0/0,-2/0,2/-1,4/0,-3/", true),
             new PLL("Opp", "/3,3/1,0/-2,-2/2,0/2,2/0,-2/-1,-1/0,3/-3,-3/0,2/-2,-2/-1,0", true),
@@ -54,7 +64,11 @@ public class AlgTemplates {
             new PLL("Pb", "/-3,0/4,-1/0,-2/0,2/-4,0/2,0/0,-2/1,0/-3,0/-3,3/3,0/", true)
     ));
 
+    /**
+     * Algoritmos auxiliares (de preferência os mais curtos)
+     */
     public static final ArrayList<AuxAlg> AUX_ALGS = new ArrayList<>(Arrays.asList(
+            new AuxAlg("nada", "0,0"),
             new AuxAlg("N/N1", "/3,-3/-3,3/0,0"),
             new AuxAlg("N/N2", "/0,0/1,0/3,-3/-3,3/-1,0"),
             new AuxAlg("N/N3", "/0,0/0,-1/3,-3/-3,3/0,1"),
@@ -356,8 +370,6 @@ public class AlgTemplates {
             new AuxAlg("Z/-2", "/0,0/ 4,0 / -1,-1 / -2,1 / -1,-1 / 4,1 / -1,-1 / 0,1"),
             new AuxAlg("-/Z1", "/0,0/ 1,0 / -1,-1 / 1,4 / -1,-1 / 1,-2 / -1,-1 / 0,1"),
             new AuxAlg("-/Z2", "/0,0/ 1,3 / -1,-1 / 1,4 / -1,-1 / 1,-2 / -1,-1 / 0,1"),
-
-            new AuxAlg("nada", "0,0"),
             new AuxAlg("E/-1", "/3,3/1,-2/2,2/-3,0/-3,-3/0,0"),
             new AuxAlg("E/-2", "/0,0/3,0/3,3/1,-2/2,2/-3,0/-3,-3/0,0"),
             new AuxAlg("-/E1", "/-3,-3/2,-1/-2,-2/0,3/3,3/0,0"),

@@ -1,5 +1,9 @@
 package com.main.pbl;
 
+/**
+ * Classe que serve para guardar os parâmetros de um
+ * algoritmo auxiliar.
+ */
 public class AuxAlg {
 
     private String name;

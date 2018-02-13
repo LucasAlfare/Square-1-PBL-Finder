@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
+/**
+ * Esta classe se responsabiliza em disponibilizar
+ * os parâmetros necessários para a busca dos algoritmos
+ * que resolvem 1 PBL.
+ */
 public class Finder {
 
     private PBL targetPbl;
@@ -47,9 +52,6 @@ public class Finder {
 
                 if (isSolved(squareOne)) {
                     elapsedTime = System.currentTimeMillis() - i;
-                    System.out.println(testSolveSeq);
-                    System.out.println(CustomStringUtils.otimizedSequence(testSolveSeq));
-                    System.out.println();
                     sucessSearches.add(new SucessSearch(targetPbl, CustomStringUtils.otimizedSequence(testSolveSeq), a, b));
                     squareOne.applyStringSequence(CustomStringUtils.reversedSequence(testSolveSeq));
                 } else {

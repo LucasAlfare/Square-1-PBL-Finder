@@ -5,6 +5,8 @@ import javax.swing.*;
 /**
  *
  * @author Lucas
+ *
+ * UI.
  */
 public class Gui extends javax.swing.JFrame {
 
@@ -16,7 +18,7 @@ public class Gui extends javax.swing.JFrame {
 
         setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("Square-1 Simple PBL Finder v1.5 alfa by Anuar and Lucas");
+        setTitle("Square-1 Simple PBL Finder v2 alfa by Anuar and Lucas");
     }
 
     private void initComponents() {

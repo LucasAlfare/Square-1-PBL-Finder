@@ -6,6 +6,12 @@ import java.util.Collections;
 
 public class CustomStringUtils {
 
+    /**
+     * Returns a otimized String representation for a old String sequence.
+     *
+     * @param velha Sequence to be refactored
+     * @return otimized String
+     */
     public static String otimizedSequence(String velha) {
         ArrayList<String> aux = new ArrayList<>(Arrays.asList(velha.replaceAll(" ", "").split("/")));
         //remove os itens vazios..
@@ -24,15 +30,14 @@ public class CustomStringUtils {
                 aux.remove(indexOfZeros);
                 aux.remove(indexOfZeros - 1);
 
-                int a = (Integer.parseInt(previousPair[0]) + Integer.parseInt(nextPair[0]));
-                int b = (Integer.parseInt(previousPair[1]) + Integer.parseInt(nextPair[1]));
+                int sumA = (Integer.parseInt(previousPair[0]) + Integer.parseInt(nextPair[0]));
+                int sumB = (Integer.parseInt(previousPair[1]) + Integer.parseInt(nextPair[1]));
 
-                int x = a > 6 ? ((12 - a) * -1) : (a < 0 ? (a < -6 ? 12 - a : a) : a);
-                int y = b > 6 ? ((12 - b) * -1) : (b < 0 ? (b < -6 ? 12 - b : b) : b);
+                int x = sumA > 6 ? ((12 - sumA) * -1) : (sumA < 0 ? (sumA < -6 ? 12 - sumA : sumA) : sumA);
+                int y = sumB > 6 ? ((12 - sumB) * -1) : (sumB < 0 ? (sumB < -6 ? 12 - sumB : sumB) : sumB);
 
                 //a+c,b+d
-                String novoPar = x + "," + y;
-                aux.add(indexOfZeros - 1, novoPar);
+                aux.add(indexOfZeros - 1, x + "," + y);
 
                 return otimizedSequence(strListToSequence(aux, velha));
             }

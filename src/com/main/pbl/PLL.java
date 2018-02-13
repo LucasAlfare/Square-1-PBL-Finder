@@ -1,5 +1,8 @@
 package com.main.pbl;
 
+/**
+ * ESSA CLASSE REPRESENTA 1 PLL.
+ */
 public class PLL {
 
     private String name;

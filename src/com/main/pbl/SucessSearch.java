@@ -1,5 +1,8 @@
 package com.main.pbl;
 
+/**
+ * Esta é uma busca bem-sucedida.
+ */
 public class SucessSearch {
 
     private PBL targetedPbl;

@@ -1,5 +1,8 @@
 package com.main.pbl;
 
+/**
+ * EESSA CLASSE REPRESENTA 1 PBL.
+ */
 public class PBL {
 
     private String name;
