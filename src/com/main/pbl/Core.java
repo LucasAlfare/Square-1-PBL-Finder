@@ -136,6 +136,7 @@ public class Core {
                     refreshList(gui.getAuxiliarAlgorithmsList(), auxAuxAlgs.toArray(new String[auxAuxAlgs.size()]));
 
                     new Thread(() -> Main.auxAlgsToFile(currAuxAlgs)).start();
+                    getGui().getLogLabel().setText("aux alg saved on main file table.");
                 } else {
                     JOptionPane.showMessageDialog(gui, "PLEASE, INPUT SEQ ON THE FORMAT: 'name,alg'");
                 }
@@ -156,6 +157,7 @@ public class Core {
                     refreshList(gui.getAuxiliarAlgorithmsList(), auxAuxAlgs.toArray(new String[auxAuxAlgs.size()]));
 
                     new Thread(() -> Main.auxAlgsToFile(currAuxAlgs)).start();
+                    getGui().getLogLabel().setText("aux alg removed from main file table.");
                 } else {
                     JOptionPane.showMessageDialog(gui, "YOU SHOULD SELECT A ITEM TO REMOVE!!");
                 }
@@ -166,7 +168,8 @@ public class Core {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Main.auxAlgsToFile(currAuxAlgs);
-                JOptionPane.showMessageDialog(gui, "SAVED!");
+                getGui().getLogLabel().setText("Table SAVED.");
+                JOptionPane.showMessageDialog(gui, "Table SAVED!");
             }
         });
     }

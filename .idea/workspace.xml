@@ -9,11 +9,6 @@
     <list default="true" id="f3b217f1-fe90-4f9f-bc2c-8ad65e06d6c2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/com/main/pbl/Core.java" afterPath="$PROJECT_DIR$/src/com/main/pbl/Core.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/main/pbl/CustomStringUtils.java" afterPath="$PROJECT_DIR$/src/com/main/pbl/CustomStringUtils.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/main/pbl/Finder.java" afterPath="$PROJECT_DIR$/src/com/main/pbl/Finder.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/main/pbl/Gui.java" afterPath="$PROJECT_DIR$/src/com/main/pbl/Gui.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/main/pbl/Main.java" afterPath="$PROJECT_DIR$/src/com/main/pbl/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/main/pbl/SucessSearch.java" afterPath="$PROJECT_DIR$/src/com/main/pbl/SucessSearch.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,7 +32,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/main/pbl/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="98">
@@ -59,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Core.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Core.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/main/pbl/Core.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="36" column="34" lean-forward="false" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+            <state relative-caret-position="400">
+              <caret line="159" column="92" lean-forward="true" selection-start-line="159" selection-start-column="92" selection-end-line="159" selection-end-column="92" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="class#1381:4855" expanded="false" />
@@ -105,8 +100,8 @@
         <option value="$PROJECT_DIR$/src/com/main/pbl/CustomStringUtils.java" />
         <option value="$PROJECT_DIR$/src/com/main/pbl/Gui.java" />
         <option value="$PROJECT_DIR$/src/com/main/pbl/Finder.java" />
-        <option value="$PROJECT_DIR$/src/com/main/pbl/Core.java" />
         <option value="$PROJECT_DIR$/src/com/main/pbl/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/main/pbl/Core.java" />
       </list>
     </option>
   </component>
@@ -321,7 +316,7 @@
       <workItem from="1518393956800" duration="1002000" />
       <workItem from="1518448552400" duration="4926000" />
       <workItem from="1518470160719" duration="15534000" />
-      <workItem from="1518528367493" duration="6880000" />
+      <workItem from="1518528367493" duration="7020000" />
     </task>
     <task id="LOCAL-00001" summary="commit test">
       <created>1518017253679</created>
@@ -491,11 +486,18 @@
       <option name="project" value="LOCAL" />
       <updated>1518484208082</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="output lang translated to english and added save auxAlgs option">
+      <created>1518535317745</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1518535317745</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78526000" />
+    <option name="totallyTimeSpent" value="78666000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
@@ -560,7 +562,8 @@
     <MESSAGE value="fixed wrong outputs" />
     <MESSAGE value="some commentting" />
     <MESSAGE value="now output shows searches in twist metric count moves order" />
-    <option name="LAST_COMMIT_MESSAGE" value="now output shows searches in twist metric count moves order" />
+    <MESSAGE value="output lang translated to english and added save auxAlgs option" />
+    <option name="LAST_COMMIT_MESSAGE" value="output lang translated to english and added save auxAlgs option" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -948,6 +951,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/main/pbl/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="15" column="64" lean-forward="true" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/main/pbl/Finder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
@@ -958,22 +971,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/main/pbl/Core.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="36" column="34" lean-forward="false" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+        <state relative-caret-position="400">
+          <caret line="159" column="92" lean-forward="true" selection-start-line="159" selection-start-column="92" selection-end-line="159" selection-end-column="92" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#1381:4855" expanded="false" />
             <element signature="class#4906:5076" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/main/pbl/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="15" column="64" lean-forward="true" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
