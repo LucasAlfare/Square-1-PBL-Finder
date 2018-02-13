@@ -62,6 +62,7 @@ public class Gui extends javax.swing.JFrame {
         auxiliarAlgorithmsList.setToolTipText("These algorithms are used to find and construct the solutions for the PBL case you defined (PBL = topPLL / bottomPLL).\n\nIt is important to remember that the more algorithms you set, the longer the solutions will take to be found.");
         jScrollPane3.setViewportView(auxiliarAlgorithmsList);
 
+        newAlgorithmField.setText("name@sequence");
         newAlgorithmField.setToolTipText("new auxiliar algorithm to be added.");
         newAlgorithmField.setBorder(javax.swing.BorderFactory.createTitledBorder("New auxiliar algorithm:"));
 
