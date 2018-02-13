@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Core {
 
@@ -77,6 +78,9 @@ public class Core {
                                     gui.getOutputArea().append(finder.getSetups());
                                     gui.getOutputArea().append("Foram encontradas " + finder.getSucessSearches().size() +
                                             " soluções em " + finder.getElapsedTime() + " milissegundos!\n\n\n\n");
+
+                                    finder.getSucessSearches().sort(Comparator.comparing(SucessSearch::getSequenceTwistMetricLenght));
+
                                     for (SucessSearch x : finder.getSucessSearches()){
                                         gui.getOutputArea().append(x + "\n\n");
                                     }
