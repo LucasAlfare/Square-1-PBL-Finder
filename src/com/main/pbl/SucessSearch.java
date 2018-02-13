@@ -16,7 +16,7 @@ public class SucessSearch {
     }
 
     public int getSequenceTwistMetricLenght(){
-        return getSequence().split("/",-1).length - 1;
+        return getSequence().split("/", -1).length - 1;
     }
 
     public int getFaceTurnMetricLenght() {

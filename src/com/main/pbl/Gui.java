@@ -1,6 +1,9 @@
 package com.main.pbl;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 
 /**
  *
@@ -18,7 +21,7 @@ public class Gui extends javax.swing.JFrame {
 
         setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("Square-1 Simple PBL Finder v2 alfa by Anuar and Lucas");
+        setTitle("Simple square-1 PBL Finder v2.1 alfa by Anuar and Lucas");
     }
 
     private void initComponents() {
@@ -40,36 +43,22 @@ public class Gui extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         sairMenu = new javax.swing.JMenuItem();
+        salvarAuxAlgsMenu = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("Top PLL"));
 
-//        topPllList.setModel(new javax.swing.AbstractListModel<String>() {
-//            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-//            public int getSize() { return strings.length; }
-//            public String getElementAt(int i) { return strings[i]; }
-//        });
         topPllList.setToolTipText("This is the PLL case from the square-1 top.");
         jScrollPane1.setViewportView(topPllList);
 
         jScrollPane2.setBorder(javax.swing.BorderFactory.createTitledBorder("Bottom PLL"));
 
-//        bottomPllList.setModel(new javax.swing.AbstractListModel<String>() {
-//            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-//            public int getSize() { return strings.length; }
-//            public String getElementAt(int i) { return strings[i]; }
-//        });
         bottomPllList.setToolTipText("This is the PLL from the square-1 bottom.");
         jScrollPane2.setViewportView(bottomPllList);
 
         jScrollPane3.setBorder(javax.swing.BorderFactory.createTitledBorder("Auxiliar Algoithms"));
 
-//        auxiliarAlgorithmsList.setModel(new javax.swing.AbstractListModel<String>() {
-//            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-//            public int getSize() { return strings.length; }
-//            public String getElementAt(int i) { return strings[i]; }
-//        });
         auxiliarAlgorithmsList.setToolTipText("These algorithms are used to find and construct the solutions for the PBL case you defined (PBL = topPLL / bottomPLL).\n\nIt is important to remember that the more algorithms you set, the longer the solutions will take to be found.");
         jScrollPane3.setViewportView(auxiliarAlgorithmsList);
 
@@ -100,10 +89,20 @@ public class Gui extends javax.swing.JFrame {
 
         jMenu1.setText("File");
 
-        sairMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0));
-        sairMenu.setText("Sair");
-        jMenu1.add(sairMenu);
+        salvarAuxAlgsMenu.setText("Save alx algs (current program folder)");
 
+        sairMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0));
+        sairMenu.setText("Exit");
+
+        sairMenu.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+
+        jMenu1.add(salvarAuxAlgsMenu);
+        jMenu1.add(sairMenu);
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -178,6 +177,7 @@ public class Gui extends javax.swing.JFrame {
     private javax.swing.JTextArea outputArea;
     private javax.swing.JButton removeAlgorithmBt;
     private javax.swing.JMenuItem sairMenu;
+    private javax.swing.JMenuItem salvarAuxAlgsMenu;
     private javax.swing.JList<String> topPllList;
 
     public JButton getAddAlgorithmBt() {
@@ -250,6 +250,14 @@ public class Gui extends javax.swing.JFrame {
 
     public void setRemoveAlgorithmBt(JButton removeAlgorithmBt) {
         this.removeAlgorithmBt = removeAlgorithmBt;
+    }
+
+    public JMenuItem getSalvarAuxAlgsMenu() {
+        return salvarAuxAlgsMenu;
+    }
+
+    public void setSalvarAuxAlgsMenu(JMenuItem salvarAuxAlgsMenu) {
+        this.salvarAuxAlgsMenu = salvarAuxAlgsMenu;
     }
 
     public JMenuItem getSairMenu() {

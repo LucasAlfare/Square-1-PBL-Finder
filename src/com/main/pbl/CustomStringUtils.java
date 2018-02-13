@@ -75,6 +75,7 @@ public class CustomStringUtils {
 
     /**
      * Reverses a square-1 sequence.
+     *
      * Example:
      * original ->  (1,-3)/
      * out      -> /(-1,3)

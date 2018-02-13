@@ -6,10 +6,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Objects;
 
 public class Core {
 
     private Gui gui;
+    private ArrayList<AuxAlg> currAuxAlgs;
 
     public Core(Gui gui) {
         this.gui = gui;
@@ -32,7 +34,9 @@ public class Core {
             bottomPlls.add(x.getName());
         }
 
-        for (AuxAlg x : AlgTemplates.AUX_ALGS) {
+        currAuxAlgs = Main.fileToAuxAlgs();
+        assert currAuxAlgs != null;
+        for (AuxAlg x : currAuxAlgs) {
             auxAuxAlgs.add(x.toString());
         }
 
@@ -67,17 +71,17 @@ public class Core {
                                 gui.getFindSolutionsBt().setEnabled(!finder.isSearching());
 
                                 gui.getLogLabel().setText(finder.isSearching() ? "searching..." : "finished");
-                                gui.getLogLabel().setForeground(finder.isSearching() ? Color.RED : Color.BLACK);
+                                gui.getLogLabel().setForeground(finder.isSearching() ? Color.RED : Color.GREEN);
 
                                 if (!finder.isSearching()){
                                     JOptionPane.showMessageDialog(gui,
-                                            "Foram encontradas " + finder.getSucessSearches().size() +
-                                                    " soluções em " + finder.getElapsedTime() + " milissegundos!");
+                                            "Was found " + finder.getSucessSearches().size() +
+                                                    " solutions in " + finder.getElapsedTime() + " miliseconds!");
 
                                     gui.getOutputArea().setText("");
                                     gui.getOutputArea().append(finder.getSetups());
-                                    gui.getOutputArea().append("Foram encontradas " + finder.getSucessSearches().size() +
-                                            " soluções em " + finder.getElapsedTime() + " milissegundos!\n\n\n\n");
+                                    gui.getOutputArea().append("Was found " + finder.getSucessSearches().size() +
+                                            " solutions in " + finder.getElapsedTime() + " miliseconds!\n\n\n\n");
 
                                     finder.getSucessSearches().sort(Comparator.comparing(SucessSearch::getSequenceTwistMetricLenght));
 
@@ -90,7 +94,6 @@ public class Core {
                             }
                         }
                     });
-                    a.start();
 
                     Thread b = new Thread(new Runnable() {
                         @Override
@@ -98,9 +101,14 @@ public class Core {
                             finder.search();
                         }
                     });
+
+                    //primeiro inicia a thread de atualizar a UI (sleep 200ms)
+                    a.start();
+
+                    //depois começa a procuar
                     b.start();
                 } else {
-                    JOptionPane.showMessageDialog(gui, "SELECIONE AS PLLs CORRETAMENTE!!");
+                    JOptionPane.showMessageDialog(gui, "CHOOSE THE PLLs PROPERLY!!");
                 }
             }
         });
@@ -119,15 +127,17 @@ public class Core {
                     auxAuxAlgs.clear();
                     String[] userAlg = gui.getNewAlgorithmField().getText()
                             .replaceAll(" ", "").replaceAll("\\(", "").replaceAll("\\)", "").split("@");
-                    AlgTemplates.AUX_ALGS.add(new AuxAlg(userAlg[0], userAlg[1]));
+                    currAuxAlgs.add(new AuxAlg(userAlg[0], userAlg[1]));
 
-                    for (AuxAlg x : AlgTemplates.AUX_ALGS) {
+                    for (AuxAlg x : currAuxAlgs) {
                         auxAuxAlgs.add(x.toString());
                     }
 
                     refreshList(gui.getAuxiliarAlgorithmsList(), auxAuxAlgs.toArray(new String[auxAuxAlgs.size()]));
+
+                    new Thread(() -> Main.auxAlgsToFile(currAuxAlgs)).start();
                 } else {
-                    JOptionPane.showMessageDialog(gui, "DIGITE NO FORMATO: 'nome,alg'");
+                    JOptionPane.showMessageDialog(gui, "PLEASE, INPUT SEQ ON THE FORMAT: 'name,alg'");
                 }
             }
         });
@@ -138,15 +148,25 @@ public class Core {
                 int selectedIndext = gui.getAuxiliarAlgorithmsList().getSelectedIndex();
 
                 if (selectedIndext != -1){
-                    AlgTemplates.AUX_ALGS.remove(selectedIndext);
+                    currAuxAlgs.remove(selectedIndext);
                     auxAuxAlgs.clear();
-                    for (AuxAlg x : AlgTemplates.AUX_ALGS) {
+                    for (AuxAlg x : currAuxAlgs) {
                         auxAuxAlgs.add(x.toString());
                     }
                     refreshList(gui.getAuxiliarAlgorithmsList(), auxAuxAlgs.toArray(new String[auxAuxAlgs.size()]));
+
+                    new Thread(() -> Main.auxAlgsToFile(currAuxAlgs)).start();
                 } else {
-                    JOptionPane.showMessageDialog(gui, "PRA DELETAR TEM QUE SELECIONAR ALGUM!");
+                    JOptionPane.showMessageDialog(gui, "YOU SHOULD SELECT A ITEM TO REMOVE!!");
                 }
+            }
+        });
+
+        gui.getSalvarAuxAlgsMenu().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Main.auxAlgsToFile(currAuxAlgs);
+                JOptionPane.showMessageDialog(gui, "SAVED!");
             }
         });
     }

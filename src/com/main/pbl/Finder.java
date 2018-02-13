@@ -26,6 +26,9 @@ public class Finder {
     }
 
     public void search() {
+        ArrayList<AuxAlg> savedAlgs = Main.fileToAuxAlgs();
+        assert savedAlgs != null;
+
         Cube squareOne = new Cube();
         String seqA = CustomStringUtils.otimizedSequence(
                 CustomStringUtils.reversedSequence(targetPbl.getTopPLL().getSequence()));
@@ -36,15 +39,15 @@ public class Finder {
         squareOne.applyStringSequence(seqA);
         squareOne.applyStringSequence(seqB);
 
-        setups = "PBL: " + targetPbl.getName() + "\n";
-        setups += "Setups aplicados:\n";
+        setups = "Targeted PBL: " + targetPbl.getName() + "\n";
+        setups += "Applied setups:\n";
         setups +=
                 seqA + ";\n" +
                 seqB + ";\n\n";
 
         long i = System.currentTimeMillis();
-        for (AuxAlg a : AlgTemplates.AUX_ALGS) {
-            for (AuxAlg b : AlgTemplates.AUX_ALGS) {
+        for (AuxAlg a : savedAlgs) {
+            for (AuxAlg b : savedAlgs) {
                 searching = true;
 
                 String testSolveSeq = a.getSequence() + b.getSequence();
