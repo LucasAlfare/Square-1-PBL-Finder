@@ -8,7 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f3b217f1-fe90-4f9f-bc2c-8ad65e06d6c2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/com/main/pbl/AlgTemplates.java" afterPath="$PROJECT_DIR$/src/com/main/pbl/AlgTemplates.java" />
       <change beforePath="$PROJECT_DIR$/src/com/main/pbl/Main.java" afterPath="$PROJECT_DIR$/src/com/main/pbl/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -33,11 +32,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/main/pbl/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="29" column="41" lean-forward="true" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+            <state relative-caret-position="245">
+              <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -45,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AlgTemplates.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AlgTemplates.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/main/pbl/AlgTemplates.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="82" column="61" lean-forward="true" selection-start-line="82" selection-start-column="61" selection-end-line="82" selection-end-column="61" />
+            <state relative-caret-position="370">
+              <caret line="884" column="7" lean-forward="true" selection-start-line="884" selection-start-column="7" selection-end-line="884" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -87,9 +86,9 @@
         <option value="$PROJECT_DIR$/src/com/main/pbl/Finder.java" />
         <option value="$PROJECT_DIR$/src/com/main/pbl/Core.java" />
         <option value="$PROJECT_DIR$/src/com/main/pbl/Gui.java" />
-        <option value="$PROJECT_DIR$/src/com/main/pbl/Main.java" />
         <option value="$PROJECT_DIR$/auxAlgs_table.txt" />
         <option value="$PROJECT_DIR$/src/com/main/pbl/AlgTemplates.java" />
+        <option value="$PROJECT_DIR$/src/com/main/pbl/Main.java" />
       </list>
     </option>
   </component>
@@ -316,7 +315,7 @@
       <workItem from="1518528367493" duration="7330000" />
       <workItem from="1518550052767" duration="14000" />
       <workItem from="1518617468076" duration="294000" />
-      <workItem from="1518792488154" duration="1185000" />
+      <workItem from="1518792488154" duration="1478000" />
     </task>
     <task id="LOCAL-00001" summary="commit test">
       <created>1518017253679</created>
@@ -514,11 +513,18 @@
       <option name="project" value="LOCAL" />
       <updated>1518535706816</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="more aux algs added">
+      <created>1518793690434</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1518793690434</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="80469000" />
+    <option name="totallyTimeSpent" value="80762000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
@@ -586,7 +592,8 @@
     <MESSAGE value="output lang translated to english and added save auxAlgs option" />
     <MESSAGE value="added some logs" />
     <MESSAGE value="added little info" />
-    <option name="LAST_COMMIT_MESSAGE" value="added little info" />
+    <MESSAGE value="more aux algs added" />
+    <option name="LAST_COMMIT_MESSAGE" value="more aux algs added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -946,21 +953,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/main/pbl/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/com/main/pbl/AlgTemplates.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="29" column="41" lean-forward="true" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="370">
+          <caret line="884" column="7" lean-forward="true" selection-start-line="884" selection-start-column="7" selection-end-line="884" selection-end-column="7" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/main/pbl/AlgTemplates.java">
+    <entry file="file://$PROJECT_DIR$/src/com/main/pbl/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="82" column="61" lean-forward="true" selection-start-line="82" selection-start-column="61" selection-end-line="82" selection-end-column="61" />
-          <folding />
+        <state relative-caret-position="245">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

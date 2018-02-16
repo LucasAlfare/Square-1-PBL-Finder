@@ -16,34 +16,18 @@ public class Main {
     private static final String FILE_NAME = "auxAlgs_table.txt";
 
     public static void main(String[] args) {
-//        String log = "ready.";
-//        Path path = FileSystems.getDefault().getPath(FILE_NAME);
-//        File file = new File(path.toUri());
-//
-//        if (!file.exists() && !file.isDirectory()){
-//            auxAlgsToFile(AlgTemplates.AUX_ALGS);
-//            log = "Auxiliar algorithms table created (first time).";
-//        }
-//
-//        Core core = new Core(new Gui());
-//        core.getGui().getLogLabel().setText(log);
-//        core.getGui().setVisible(true);
-
+        String log = "ready.";
         Path path = FileSystems.getDefault().getPath(FILE_NAME);
         File file = new File(path.toUri());
 
-        if (file.exists() && !file.isDirectory()){
-            try {
-                Scanner scanner = new Scanner(file);
-                while (scanner.hasNext()){
-                    System.out.println(scanner.nextLine().replaceAll("”", "\""));
-                }
-            } catch (Exception e){
-
-            }
-        } else {
-
+        if (!file.exists() && !file.isDirectory()){
+            auxAlgsToFile(AlgTemplates.AUX_ALGS);
+            log = "Auxiliar algorithms table created (first time).";
         }
+
+        Core core = new Core(new Gui());
+        core.getGui().getLogLabel().setText(log);
+        core.getGui().setVisible(true);
     }
 
     public static ArrayList<AuxAlg> fileToAuxAlgs(){
