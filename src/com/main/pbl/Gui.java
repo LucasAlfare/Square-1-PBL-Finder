@@ -3,7 +3,6 @@ package com.main.pbl;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 
 /**
  *
@@ -21,7 +20,7 @@ public class Gui extends javax.swing.JFrame {
 
         setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("Simple square-1 PBL Finder v2.1 alfa by Anuar and Lucas");
+        setTitle("Simple square-1 PBL Finder v1 by Anuar and Lucas");
     }
 
     private void initComponents() {
