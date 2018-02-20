@@ -110,7 +110,7 @@ public class Gui extends javax.swing.JFrame {
             frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
             MultiLineLabel about = new MultiLineLabel();
             about.setUI(MultiLineLabelUI.labelUI);
-            about.setText("This program is used to find solutions to most PBL cases using two of the auxiliary algorithms. The ideia came from Jayden McNeill's post from the sq-1ers facebook group and most of the auxiliary algorithms are from the Sub 6 PBL list (goo.gl/8bWUcP).\n\n\tThe program was developed by Anuar Onofre and Lucas Sousa to be used as a cool tool to find easy advanced algorithms.");
+            about.setText("This program is used to find solutions to most PBL cases using two of the auxiliary algorithms. The ideia came from Jayden McNeill's post from the sq-1ers facebook group and most of the auxiliary algorithms are from the Sub 6 PBL list (goo.gl/8bWUcP), made by Charlie Stark.\n\n\tThe program was developed by Anuar Onofre and Lucas Sousa to be used as a cool tool to find easy advanced algorithms.");
             frame.add(about);
 
             EventQueue.invokeLater(() -> frame.setVisible(true));
