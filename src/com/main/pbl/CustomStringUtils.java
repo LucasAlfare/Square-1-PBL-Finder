@@ -7,13 +7,14 @@ import java.util.Collections;
 public class CustomStringUtils {
 
     /**
-     * Returns a otimized String representation for a old String sequence.
+     * Returns a otimized String representation
+     * for a old String sequence using recursion.
      *
-     * @param velha Sequence to be refactored
+     * @param old Sequence to be refactored
      * @return otimized String
      */
-    public static String otimizedSequence(String velha) {
-        ArrayList<String> aux = new ArrayList<>(Arrays.asList(velha.replaceAll(" ", "").split("/")));
+    public static String otimizedSequence(String old) {
+        ArrayList<String> aux = new ArrayList<>(Arrays.asList(old.replaceAll(" ", "").split("/")));
         //remove os itens vazios..
         aux.removeAll(Collections.singletonList(""));
 
@@ -39,20 +40,27 @@ public class CustomStringUtils {
                 //a+c,b+d
                 aux.add(indexOfZeros - 1, x + "," + y);
 
-                return otimizedSequence(strListToSequence(aux, velha));
+                return otimizedSequence(strListToSequence(aux, old));
             }
             else if (indexOfZeros == 0){ //no começo..
                 aux.remove(0);
-                return otimizedSequence(strListToSequence(aux, velha.replaceFirst("/", "")));
+                return otimizedSequence(strListToSequence(aux, old.replaceFirst("/", "")));
             } else { //no fim...
                 aux.remove(aux.size() - 1);
-                return otimizedSequence(strListToSequence(aux, velha));
+                return otimizedSequence(strListToSequence(aux, old));
             }
         }  else {
-            return strListToSequence(aux, velha);
+            return strListToSequence(aux, old);
         }
     }
 
+    /**
+     * Converts a list of String into a sequence string (formated).
+     *
+     * @param strings  list containing all pairs
+     * @param original original sequence passed
+     * @return formatted sequence from pairs list.
+     */
     private static String strListToSequence(ArrayList<String> strings, String original){
         ArrayList<String> hold = new ArrayList<>();
 
@@ -68,7 +76,7 @@ public class CustomStringUtils {
 
         //re-adds twists
         if (original.startsWith("/")) r = "/" + r;
-        if (original.endsWith("/")) r += "/";
+        if (original.endsWith("/") || original.endsWith("/0,0")) r += "/";
 
         return r;
     }
@@ -102,7 +110,7 @@ public class CustomStringUtils {
         //cleans toString list
         String r = hold.toString().replaceAll(", ", "/").replaceAll("\\[", "").replaceAll("]", "").replaceAll(" ", "");
 
-        //readds twists
+        //re-adds twists
         if (algorithm.startsWith("/")) r += "/";
         if (algorithm.endsWith("/")) r = "/" + r;
 

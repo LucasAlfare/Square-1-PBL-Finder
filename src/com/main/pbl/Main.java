@@ -1,6 +1,7 @@
 package com.main.pbl;
 
 
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -22,12 +23,29 @@ public class Main {
 
         if (!file.exists() && !file.isDirectory()){
             auxAlgsToFile(AlgTemplates.AUX_ALGS);
-            log = "Auxiliar algorithms table created (first time).";
+            log = "Auxiliary algorithms table created (first time).";
         }
 
-        Core core = new Core(new Gui());
-        core.getGui().getLogLabel().setText(log);
-        core.getGui().setVisible(true);
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException |
+                InstantiationException |
+                IllegalAccessException |
+                javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+
+        String finalLog = log;
+        EventQueue.invokeLater(() -> {
+            Core core = new Core(new Gui());
+            core.getGui().getLogLabel().setText(finalLog);
+            core.getGui().setVisible(true);
+        });
     }
 
     public static ArrayList<AuxAlg> fileToAuxAlgs(){

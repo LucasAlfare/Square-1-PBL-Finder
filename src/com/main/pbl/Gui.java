@@ -1,6 +1,7 @@
 package com.main.pbl;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -15,12 +16,12 @@ public class Gui extends javax.swing.JFrame {
     /**
      * Creates new form Gui
      */
-    public Gui() {
+    Gui() {
         initComponents();
 
         setLocationRelativeTo(null);
         setResizable(false);
-        setTitle("Simple square-1 PBL Finder v1 by Anuar and Lucas");
+        setTitle("Simple square-1 PBL finder v1.2 by Anuar and Lucas");
     }
 
     private void initComponents() {
@@ -56,14 +57,14 @@ public class Gui extends javax.swing.JFrame {
         bottomPllList.setToolTipText("This is the PLL from the square-1 bottom.");
         jScrollPane2.setViewportView(bottomPllList);
 
-        jScrollPane3.setBorder(javax.swing.BorderFactory.createTitledBorder("Auxiliar Algoithms"));
+        jScrollPane3.setBorder(javax.swing.BorderFactory.createTitledBorder("Auxiliary Algorithms"));
 
         auxiliarAlgorithmsList.setToolTipText("These algorithms are used to find and construct the solutions for the PBL case you defined (PBL = topPLL / bottomPLL).\n\nIt is important to remember that the more algorithms you set, the longer the solutions will take to be found.");
         jScrollPane3.setViewportView(auxiliarAlgorithmsList);
 
         newAlgorithmField.setText("name@sequence");
-        newAlgorithmField.setToolTipText("new auxiliar algorithm to be added.");
-        newAlgorithmField.setBorder(javax.swing.BorderFactory.createTitledBorder("New auxiliar algorithm:"));
+        newAlgorithmField.setToolTipText("new auxiliary algorithm to be added.");
+        newAlgorithmField.setBorder(javax.swing.BorderFactory.createTitledBorder("New auxiliary algorithm:"));
 
         addAlgorithmBt.setText("Add");
         addAlgorithmBt.setToolTipText("adds the typed algorithm to the list");
@@ -77,7 +78,7 @@ public class Gui extends javax.swing.JFrame {
         jScrollPane4.setViewportView(outputArea);
 
         findSolutionsBt.setText("Find solutions");
-        findSolutionsBt.setToolTipText("Starts searches solutions to the PBL case.");
+        findSolutionsBt.setToolTipText("Starts searching for solutions to the PBL case.");
 
         clearBt.setText("clear");
         clearBt.setToolTipText("clears the output console.");
@@ -93,17 +94,35 @@ public class Gui extends javax.swing.JFrame {
 
         sairMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0));
         sairMenu.setText("Exit");
+        sairMenu.addActionListener(e -> System.exit(0));
 
-        sairMenu.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
+        JMenu jMenu2 = new JMenu();
+        jMenu2.setText("Help");
+
+        JMenuItem aboutMenu = new JMenuItem();
+        aboutMenu.setText("About...");
+        aboutMenu.addActionListener(e -> {
+            JFrame frame = new JFrame();
+            frame.setTitle("PBL Finder Info");
+            frame.setSize(400, 200);
+            frame.setLayout(new FlowLayout());
+            frame.setLocationRelativeTo(Gui.this);
+            frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+            MultiLineLabel about = new MultiLineLabel();
+            about.setUI(MultiLineLabelUI.labelUI);
+            about.setText("This program is used to find solutions to most PBL cases using two of the auxiliary algorithms. The ideia came from Jayden McNeill's post from the sq-1ers facebook group and most of the auxiliary algorithms are from the Sub 6 PBL list (goo.gl/8bWUcP).\n\n\tThe program was developed by Anuar Onofre and Lucas Sousa to be used as a cool tool to find easy advanced algorithms.");
+            frame.add(about);
+
+            EventQueue.invokeLater(() -> frame.setVisible(true));
         });
 
         jMenu1.add(salvarAuxAlgsMenu);
         jMenu1.add(sairMenu);
+
+        jMenu2.add(aboutMenu);
+
         jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
